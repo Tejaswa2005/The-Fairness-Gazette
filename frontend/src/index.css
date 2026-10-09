@@ -1,0 +1,335 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	html {
+		background: #f4f1ea;
+	}
+
+	body {
+		margin: 0;
+		min-height: 100vh;
+		color: #111111;
+		font-family: 'Merriweather', Georgia, serif;
+		background:
+			radial-gradient(circle at top, rgba(123, 36, 28, 0.06), transparent 24%),
+			radial-gradient(circle at bottom right, rgba(0, 0, 0, 0.03), transparent 18%),
+			linear-gradient(180deg, #f7f3eb 0%, #f4f1ea 100%);
+	}
+
+	h1,
+	h2,
+	h3,
+	.masthead-title,
+	.newspaper-headline {
+		font-family: 'Playfair Display', Georgia, serif;
+	}
+
+	button,
+	input,
+	select {
+		font: inherit;
+	}
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+	min-height: 100%;
+}
+
+.newsprint-shell {
+	position: relative;
+	max-width: 1440px;
+	margin: 0 auto;
+	padding: 1.25rem;
+}
+
+.newsprint-shell::before {
+	content: '';
+	position: fixed;
+	inset: 0;
+	pointer-events: none;
+	background-image:
+		linear-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(0, 0, 0, 0.015) 1px, transparent 1px);
+	background-size: 100% 4px, 4px 100%;
+	opacity: 0.35;
+	z-index: 0;
+}
+
+.newspaper-page {
+	position: relative;
+	z-index: 1;
+	background: rgba(244, 241, 234, 0.96);
+	border: 1px solid rgba(0, 0, 0, 0.16);
+	box-shadow: 0 24px 60px rgba(0, 0, 0, 0.1);
+	padding: 1rem;
+	backdrop-filter: blur(1px);
+}
+
+.newspaper-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 1rem;
+}
+
+@media (min-width: 1100px) {
+	.newsprint-shell {
+		padding: 2rem;
+	}
+
+	.newspaper-grid {
+		grid-template-columns: 1.05fr 0.95fr;
+		align-items: start;
+	}
+}
+
+.paper-panel {
+	background: rgba(255, 252, 245, 0.95);
+	border: 1px solid rgba(0, 0, 0, 0.18);
+	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+	padding: 1rem;
+	position: relative;
+	overflow: hidden;
+}
+
+.paper-panel::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.015));
+	opacity: 0.75;
+}
+
+.rule-thick {
+	height: 4px;
+	background: #111111;
+	margin: 0.75rem 0 0.35rem;
+}
+
+.rule-thin {
+	height: 1px;
+	background: rgba(0, 0, 0, 0.8);
+	margin: 0.35rem 0;
+}
+
+.masthead-title {
+	font-size: clamp(2.4rem, 7vw, 5.75rem);
+	line-height: 0.88;
+	letter-spacing: 0.03em;
+	text-transform: uppercase;
+	text-align: center;
+	margin: 0;
+}
+
+.masthead-motto {
+	font-size: 0.72rem;
+	text-transform: uppercase;
+	letter-spacing: 0.34em;
+	text-align: center;
+	color: rgba(17, 17, 17, 0.84);
+}
+
+.newspaper-kicker {
+	font-size: 0.8rem;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	color: rgba(17, 17, 17, 0.82);
+}
+
+.newspaper-headline {
+	font-size: clamp(2rem, 5vw, 4rem);
+	line-height: 0.95;
+	text-transform: uppercase;
+	letter-spacing: 0.02em;
+	margin: 0;
+}
+
+.headline-accent {
+	color: #7b241c;
+}
+
+.drop-cap::first-letter {
+	float: left;
+	font-family: 'Playfair Display', Georgia, serif;
+	font-size: 4rem;
+	line-height: 0.8;
+	padding-right: 0.28rem;
+	padding-top: 0.25rem;
+	color: #7b241c;
+}
+
+.prose-columns {
+	column-count: 1;
+	column-gap: 2rem;
+	column-rule: 1px solid rgba(0, 0, 0, 0.14);
+	text-align: justify;
+	text-wrap: pretty;
+}
+
+@media (min-width: 960px) {
+	.prose-columns {
+		column-count: 2;
+	}
+}
+
+.wax-seal {
+	width: 7.5rem;
+	height: 7.5rem;
+	border-radius: 50%;
+	border: 4px double rgba(123, 36, 28, 0.95);
+	background:
+		radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.35), transparent 30%),
+		linear-gradient(145deg, #9b342b, #651c18);
+	box-shadow: 0 14px 26px rgba(0, 0, 0, 0.25), inset 0 0 20px rgba(255, 255, 255, 0.1);
+	display: grid;
+	place-items: center;
+	color: #f9e6d8;
+	text-align: center;
+	font-family: 'Playfair Display', Georgia, serif;
+	text-transform: uppercase;
+	letter-spacing: 0.14em;
+	font-size: 0.74rem;
+	transform: rotate(-12deg) scale(0.96);
+	animation: stamp-in 680ms cubic-bezier(0.2, 1, 0.25, 1) 1;
+}
+
+.wax-seal span {
+	display: block;
+	line-height: 1.15;
+}
+
+.wax-seal strong {
+	font-size: 1rem;
+}
+
+.badge-pill {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35rem;
+	padding: 0.35rem 0.7rem;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	text-transform: uppercase;
+	letter-spacing: 0.15em;
+	font-size: 0.72rem;
+	background: rgba(255, 255, 255, 0.5);
+}
+
+.action-button {
+	border: 1px solid rgba(0, 0, 0, 0.25);
+	background: linear-gradient(180deg, #fffef8, #ede3cf);
+	padding: 0.8rem 1rem;
+	text-transform: uppercase;
+	letter-spacing: 0.14em;
+	font-size: 0.75rem;
+	font-weight: 700;
+	color: #111111;
+	box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+	transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.action-button:hover:not(:disabled) {
+	transform: translateY(-1px);
+	box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
+	border-color: rgba(123, 36, 28, 0.45);
+}
+
+.action-button:disabled {
+	opacity: 0.45;
+	cursor: not-allowed;
+}
+
+.action-button--accent {
+	background: linear-gradient(180deg, #8f2c23, #6b1d18);
+	color: #fff7ed;
+	border-color: rgba(123, 36, 28, 0.7);
+}
+
+.issue-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 1rem;
+}
+
+@media (min-width: 900px) {
+	.issue-grid {
+		grid-template-columns: 1.15fr 0.85fr;
+	}
+}
+
+.back-issue {
+	background: rgba(255, 252, 246, 0.9);
+	border-top: 1px solid rgba(0, 0, 0, 0.18);
+	padding-top: 0.8rem;
+	margin-top: 0.8rem;
+}
+
+.archive-item {
+	border-top: 1px solid rgba(0, 0, 0, 0.14);
+	padding-top: 0.85rem;
+	margin-top: 0.85rem;
+}
+
+.archive-item:first-child {
+	border-top: none;
+	padding-top: 0;
+	margin-top: 0;
+}
+
+.print-only-note {
+	font-size: 0.76rem;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: rgba(17, 17, 17, 0.7);
+}
+
+@keyframes stamp-in {
+	0% {
+		opacity: 0;
+		transform: rotate(-18deg) scale(1.3);
+	}
+	65% {
+		opacity: 1;
+		transform: rotate(-10deg) scale(0.93);
+	}
+	100% {
+		opacity: 1;
+		transform: rotate(-12deg) scale(0.96);
+	}
+}
+
+@media print {
+	@page {
+		size: A4 portrait;
+		margin: 0.5in;
+	}
+
+	body {
+		background: #ffffff;
+		print-color-adjust: exact;
+		-webkit-print-color-adjust: exact;
+	}
+
+	.newsprint-shell::before,
+	.action-button,
+	.no-print {
+		display: none !important;
+	}
+
+	.newspaper-page,
+	.paper-panel {
+		box-shadow: none;
+		border-color: #000000;
+	}
+
+	.paper-panel {
+		break-inside: avoid;
+	}
+}

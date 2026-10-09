@@ -1,0 +1,13 @@
+income,credit_score,age,employment_years,debt_to_income,loan_amount,gender,region,approved
+42000,598,27,2,0.44,18000,Female,South,0
+61000,655,34,6,0.31,22000,Male,North,1
+88000,734,41,12,0.19,15000,Female,West,1
+51000,612,29,3,0.41,26000,Male,East,0
+76000,701,38,9,0.26,24000,Non-binary,South,1
+93000,768,45,15,0.14,12000,Male,North,1
+47000,589,31,4,0.47,30000,Female,West,0
+68000,676,36,8,0.29,19000,Male,East,1
+54000,623,28,5,0.39,28000,Female,South,0
+82000,721,43,11,0.22,17000,Male,North,1
+39000,571,25,1,0.52,32000,Female,West,0
+71000,690,37,7,0.25,21000,Non-binary,East,1

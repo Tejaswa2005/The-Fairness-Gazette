@@ -1,0 +1,10 @@
+Backend/.venv
+Backend/.env
+Backend/__pycache__
+Backend/**/*.pyc
+Backend/fairness_gazette.db
+frontend/node_modules
+frontend/dist
+frontend/.env
+.git
+.vscode
